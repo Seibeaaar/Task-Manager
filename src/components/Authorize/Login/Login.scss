@@ -1,0 +1,54 @@
+@import '../../../variables.scss';
+
+.login {
+  text-align: center;
+  margin: auto;
+  .login__title {
+    font-size: 48px;
+  }
+  .login__switcher {
+    display: flex;
+    border-bottom: 1px solid $raspberry;
+    border-collapse: collapse;
+    margin-top: 20px;
+    .switcher__btn {
+      background: transparent;
+      border: none;
+      width: 50%;
+      padding: 10px;
+      font-weight: $bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color ease .4s;
+      &:hover {
+        background-color: lightgrey;
+      }
+    }
+    .switcher__btn--active {
+      color: $raspberry;
+      border-bottom: 1.5px solid $raspberry;
+    }
+  }
+}
+
+.login__form {
+  text-align: start;
+  padding: 15px 0;
+  .login__input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px 0;
+    border: 1px solid lightgrey;
+  }
+  .submit__btn {
+    border: none;
+    background-color: $raspberry;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 14px;
+    font-weight: $bold;
+    cursor: pointer;
+  }
+}

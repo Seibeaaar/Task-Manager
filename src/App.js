@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Authorize from './components/Authorize/Authorize';
+import PrivateRoute from './PrivateRoute';
+import {connect} from 'react-redux';
+import TaskList from './components/TaskList/TaskList';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path="/login" component={Authorize} status={props.online}/>
+        <PrivateRoute path="/dashboard" component={TaskList} status={props.online} />
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    online: state.login
+  }
+}
+
+export default connect(mapStateToProps)(App);

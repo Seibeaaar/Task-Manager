@@ -1,0 +1,10 @@
+.authorize {
+  display: flex;
+  .authorize__banner {
+    width: 50%;
+    height: 100vh;
+    background-image: url('../../assets/authorize-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
