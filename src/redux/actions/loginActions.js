@@ -8,6 +8,7 @@ export const addUser = (firstName, lastName, login, password) => {
       lastName,
       login,
       password,
+      sections: [],
       id: Date.now()
     }
   }

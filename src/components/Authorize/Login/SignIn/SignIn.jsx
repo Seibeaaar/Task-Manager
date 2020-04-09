@@ -14,7 +14,6 @@ class SignIn extends Component {
     })
   }
   signIn = (e) => {
-    debugger;
     e.preventDefault();
     this.props.authorizeUser(this.state.login, this.state.password);
     this.setState({
