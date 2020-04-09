@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Register from './Register/Register';
-import SignIn from './SignIn/SignIn';
+import SignInContainer from './SignIn/SignInContainer';
 import './Login.scss';
 
 class Login extends Component {
@@ -26,7 +26,7 @@ class Login extends Component {
           <button onClick={this.switchToLogin} className={this.state.register ? "switcher__btn" : "switcher__btn switcher__btn--active"}>Sign up</button>
           <button onClick={this.switchToRegister} className={this.state.register ? "switcher__btn switcher__btn--active" : "switcher__btn"}>Create an account</button>
         </div>
-        {this.state.register ? <Register /> : <SignIn />}
+        {this.state.register ? <Register /> : <SignInContainer />}
       </div>
     )
   }
