@@ -4,7 +4,7 @@ import {bake_cookie, read_cookie, delete_cookie} from 'sfcookies';
 
 const defaultState = {
   users: [],
-  status: true
+  status: false
 }
 
 const chooseCurrent = (state = [], login, password) => {
@@ -27,7 +27,6 @@ const loginReducer = (state = defaultState, action) => {
       if(chooseCurrent(state.users, action.login, action.password).length) {
         let currentUser = chooseCurrent(state.users, action.login, action.password)[0];
         bake_cookie('current', currentUser);
-        document.body.style.background = 'url("https://embedwistia-a.akamaihd.net/deliveries/d5ae8190f0aa7dfbe0b01f336f29d44094b967b5.webp?image_crop_resized=1280x720") no-repeat top / cover';
         return {...state, status: true};
       } else {
         alert('No users found');
@@ -35,7 +34,6 @@ const loginReducer = (state = defaultState, action) => {
       }
     case LOG_OUT: 
       delete_cookie('current');
-      document.body.style.background = 'transparent';
       return {...state, status: action.status};
     default: 
       return state;

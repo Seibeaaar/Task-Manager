@@ -23,7 +23,8 @@ class TaskList extends Component {
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        width: `${this.props.sections.length * 340}px`
+        width: `${this.props.sections.length * 320}px`,
+        height: '100vh'
       }
     })(Container);
     return (
@@ -36,8 +37,9 @@ class TaskList extends Component {
             <FontAwesomeIcon icon={faPowerOff} />
           </button>
         </header>
+        <div></div>
         <StyledContainer maxWidth="xl" className="tasklist__content">
-          {this.props.sections.map(item => <TaskSection heading={item.name}/>)}
+          {this.props.sections.map(item => <TaskSection heading={item.name} id={item.id}/>)}
           {this.state.add ? <TaskListFormContainer goToDefault={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
         </StyledContainer>
       </>

@@ -1,4 +1,4 @@
-import {ADD_SECTION, LOG_OUT} from '../constants';
+import {ADD_SECTION, LOG_OUT, DELETE_SECTION} from '../constants';
 import {read_cookie, bake_cookie} from 'sfcookies';
 
 const defaultState = {
@@ -8,9 +8,19 @@ const defaultState = {
   currentId: ''
 }
 
+const updateServer = (state, sections) => {
+  let users = read_cookie('users');
+  users[identifyingCurrent(users, state.currentId)].sections = sections;
+  bake_cookie('users', users);
+  bake_cookie('current', users[identifyingCurrent(users, state.currentId)]);
+}
+
 const identifyingCurrent = (users, id) => {
-  console.log(users.indexOf(users.filter(user => user.id === id)[0]));
   return users.indexOf(users.filter(user => user.id === id)[0]);
+}
+
+const removeById = (sections, id) => {
+  return sections.filter(section => section.id !== id);
 }
 
 const taskReducer = (state = defaultState, action) => {
@@ -24,12 +34,13 @@ const taskReducer = (state = defaultState, action) => {
     case LOG_OUT: 
       return {...state, sections: [], currentFirstName: '', currentLastName: ''};
     case ADD_SECTION:
-      sections = [...state.sections, {name: action.sectionName, tasks: []}];
-      let users = read_cookie('users');
-      users[identifyingCurrent(users, state.currentId)].sections = sections;
-      bake_cookie('users', users);
-      bake_cookie('current', users[identifyingCurrent(users, state.currentId)]);
+      sections = [...state.sections, {name: action.sectionName, tasks: [], id: Date.now()}];
+      updateServer(state, sections);
       return {...state, sections};
+    case DELETE_SECTION:
+      sections = removeById(state.sections, action.id);
+      updateServer(state, sections);
+      return {...state, sections}
     default: 
       return state;
   }
