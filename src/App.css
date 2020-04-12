@@ -5,11 +5,14 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 input, button {
   display: block;
   outline: none;
+  cursor: pointer;
 }
 
 

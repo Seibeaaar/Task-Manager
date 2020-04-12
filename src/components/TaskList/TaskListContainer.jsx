@@ -5,13 +5,15 @@ import TaskList from './TaskList';
 
 const TaskListContainer = (props) => {
   return (
-    <TaskList logOut={props.logOut} sections={props.sections} />
+    <TaskList logOut={props.logOut} sections={props.sections} firstName={props.firstName} lastName={props.lastName}/>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    sections: state.login.sections
+    sections: state.tasks.sections,
+    firstName: state.tasks.currentFirstName,
+    lastName: state.tasks.currentLastName
   }
 }
 
