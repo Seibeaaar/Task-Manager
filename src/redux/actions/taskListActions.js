@@ -1,4 +1,4 @@
-import {LOG_OUT, ADD_SECTION, DELETE_SECTION} from '../constants';
+import {LOG_OUT, ADD_SECTION, DELETE_SECTION, EDIT_SECTION} from '../constants';
 
 export const logOut = () => {
   return {
@@ -17,6 +17,13 @@ export const addSection = (sectionName) => {
 export const deleteSection = (id) => {
   return {
     type: DELETE_SECTION,
+    id
+  }
+}
+
+export const editSection = (id) => {
+  return {
+    type: EDIT_SECTION,
     id
   }
 }

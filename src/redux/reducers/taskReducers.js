@@ -19,8 +19,12 @@ const identifyingCurrent = (users, id) => {
   return users.indexOf(users.filter(user => user.id === id)[0]);
 }
 
-const removeById = (sections, id) => {
-  return sections.filter(section => section.id !== id);
+const removeById = (arr, id) => {
+  return arr.filter(section => section.id !== id);
+}
+
+const editById = (arr, id) => {
+  
 }
 
 const taskReducer = (state = defaultState, action) => {

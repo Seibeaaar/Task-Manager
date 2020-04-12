@@ -7,7 +7,11 @@ import './TaskSection.scss';
 class TaskSection extends Component {
   state = {
     add: false,
-    options: false
+    options: false,
+    edit: false
+  }
+  setEditMode = (value) => {
+    this.setState({edit: value})
   }
   render() {
     return (
@@ -17,7 +21,7 @@ class TaskSection extends Component {
           <button onClick={() => this.setState({options: !this.state.options})} className="options__btn">
             <FontAwesomeIcon icon={faEllipsisH} /> 
           </button>
-          {this.state.options ? <SectionOptionsContainer sectionId={this.props.id}/> : ''}
+          {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.setEditMode}/> : ''}
         </div>
         <button className="add__btn add__btn--task">Add task</button>
       </div>

@@ -4,3 +4,4 @@ export const AUTHORIZE_USER = 'AUTHORIZE_USER';
 export const LOG_OUT = 'LOG_OUT';
 export const ADD_SECTION = 'ADD_SECTION';
 export const DELETE_SECTION = 'DELETE_SECTION';
+export const EDIT_SECTION = 'EDIT_SECTION';

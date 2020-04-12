@@ -5,7 +5,7 @@ import SectionOptions from './SectionOptions';
 
 const SectionOptionsContainer = (props) => {
   return (
-    <SectionOptions deleteSection={props.deleteSection} sectionId={props.sectionId}/>
+    <SectionOptions deleteSection={props.deleteSection} sectionId={props.sectionId} editMode={props.editMode}/>
   )
 }
 

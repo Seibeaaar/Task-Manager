@@ -24,33 +24,36 @@
   }
 }
 
-.tasklist__content {
-  padding-top: 60px;
-  display: flex;
-  .add__btn {
-    background-color: red;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 8px;
-    width: 272px;
+.tasklist__background {
+  width: 100%;
+  .tasklist__content {
+    padding-top: 60px;
     display: flex;
-    align-items: center;
-    transition: background-color ease .4s;
-    &::before {
-      content: '+';
-      font-size: 20px;
-      margin-right: 10px;
+    .add__btn {
+      background-color: hsla(0,0%,100%,.26);
+      border: none;
+      border-radius: 4px;
+      padding: 6px 8px;
+      width: 272px;
+      display: flex;
+      align-items: center;
+      transition: background-color ease .4s;
+      &::before {
+        content: '+';
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      &:hover {
+        background-color: hsla(0,0%,100%,.46);
+      }
     }
-    &:hover {
-      background-color: hsla(0,0%,100%,.46);
-    }
-  }
-  .add__btn--task {
-    border: none;
-    background: transparent;
-    width: 100%;
-    &:hover {
-      background-color: rgba(9,30,66,.08);
+    .add__btn--task {
+      border: none;
+      background: transparent;
+      width: 100%;
+      &:hover {
+        background-color: rgba(9,30,66,.08);
+      }
     }
   }
 }

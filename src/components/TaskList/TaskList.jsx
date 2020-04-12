@@ -22,9 +22,12 @@ class TaskList extends Component {
       root: {
         display: 'flex',
         alignItems: 'flex-start',
-        justifyContent: 'space-between',
-        width: `${this.props.sections.length * 320}px`,
-        height: '100vh'
+        width: this.props.sections.length < 5 ? '100%' : `${this.props.sections.length * 340}px`,
+        height: '100vh',
+        backgroundImage: 'url("https://embedwistia-a.akamaihd.net/deliveries/d5ae8190f0aa7dfbe0b01f336f29d44094b967b5.webp?image_crop_resized=1280x720")',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed'
       }
     })(Container);
     return (
@@ -37,11 +40,12 @@ class TaskList extends Component {
             <FontAwesomeIcon icon={faPowerOff} />
           </button>
         </header>
-        <div></div>
-        <StyledContainer maxWidth="xl" className="tasklist__content">
-          {this.props.sections.map(item => <TaskSection heading={item.name} id={item.id}/>)}
-          {this.state.add ? <TaskListFormContainer goToDefault={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
-        </StyledContainer>
+        <div className="tasklist__background">
+          <StyledContainer maxWidth="xl" className="tasklist__content">
+            {this.props.sections.map(item => <TaskSection heading={item.name} id={item.id}/>)}
+            {this.state.add ? <TaskListFormContainer goToDefault={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
+          </StyledContainer>
+        </div>
       </>
     )
   }
