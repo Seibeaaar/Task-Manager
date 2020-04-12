@@ -4,7 +4,7 @@ import {bake_cookie, read_cookie, delete_cookie} from 'sfcookies';
 
 const defaultState = {
   users: [],
-  status: false
+  status: true
 }
 
 const chooseCurrent = (state = [], login, password) => {

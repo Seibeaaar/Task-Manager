@@ -1,6 +1,8 @@
 @import '../../variables.scss';
 
 .tasklist__header {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 5px;
@@ -23,9 +25,10 @@
 }
 
 .tasklist__content {
-  padding-top: 15px;
+  padding-top: 60px;
+  display: flex;
   .add__btn {
-    background-color: hsla(0,0%,100%,.24);
+    background-color: red;
     border: none;
     border-radius: 4px;
     padding: 6px 8px;
@@ -40,6 +43,14 @@
     }
     &:hover {
       background-color: hsla(0,0%,100%,.46);
+    }
+  }
+  .add__btn--task {
+    border: none;
+    background: transparent;
+    width: 100%;
+    &:hover {
+      background-color: rgba(9,30,66,.08);
     }
   }
 }

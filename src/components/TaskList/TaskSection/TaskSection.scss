@@ -1,3 +1,24 @@
 .tasksection {
-  
+  width: 272px;
+  background-color: #ebecf0;
+  border-radius: 4px;
+  max-height: 100%;
+  padding: 8px 6px;
+  .tasksection__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    padding-bottom: 5px;
+    .options__btn {
+      padding: 3px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: transparent;
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

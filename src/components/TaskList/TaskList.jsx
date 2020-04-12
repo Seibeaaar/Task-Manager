@@ -4,6 +4,7 @@ import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
 import TaskSection from './TaskSection/TaskSection';
 import TaskListFormContainer from './TaskListForm/TaskListFormContainer';
 import Container from '@material-ui/core/Container';
+import {withStyles} from '@material-ui/core/styles';
 import './TaskList.scss';
 
 
@@ -17,6 +18,14 @@ class TaskList extends Component {
     })
   }
   render() {
+    const StyledContainer = withStyles({
+      root: {
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        width: `${this.props.sections.length * 340}px`
+      }
+    })(Container);
     return (
       <>
         <header className="tasklist__header">
@@ -27,10 +36,10 @@ class TaskList extends Component {
             <FontAwesomeIcon icon={faPowerOff} />
           </button>
         </header>
-        <Container maxWidth="xl" className="tasklist__content">
+        <StyledContainer maxWidth="xl" className="tasklist__content">
           {this.props.sections.map(item => <TaskSection heading={item.name}/>)}
           {this.state.add ? <TaskListFormContainer goToDefault={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
-        </Container>
+        </StyledContainer>
       </>
     )
   }
