@@ -15,4 +15,13 @@ input, button {
   cursor: pointer;
 }
 
+button {
+  background: transparent;
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
 

@@ -29,7 +29,7 @@ class TaskSection extends Component {
               </button>
             </>
           }
-          {this.state.options ? <SectionOptionsContainer editMode={this.setEditMode} hideOptions={this.toggleOptions}/> : ''}
+          {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.setEditMode} hideOptions={this.toggleOptions}/> : ''}
         </div>
         <button className="add__btn add__btn--task">Add task</button>
       </div>

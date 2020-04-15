@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
 
 class SectionEdit extends Component {
   state = {
-    inputValue: ''
+    inputValue: this.props.defaultValue
   }
   inputHandler = (e) => {
     this.setState({
@@ -12,12 +14,15 @@ class SectionEdit extends Component {
   render() {
     return (
       <>
-        <textarea className="section__input" defaultValue={this.props.defaultValue} onChange={this.inputHandler}></textarea>
+        <textarea className="section__input" defaultValue={this.state.inputValue} onChange={this.inputHandler}></textarea>
         <button onClick={() => {
           debugger;
           this.props.editSection(this.props.id, this.state.inputValue);
           this.props.confirmEdit(false);
-        }}>Confirm changes</button>
+        }}><FontAwesomeIcon icon={faCheck} /></button>
+        <button onClick={() => this.props.confirmEdit(false)}>
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
       </>
     )
   }
