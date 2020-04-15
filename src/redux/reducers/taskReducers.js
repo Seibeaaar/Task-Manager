@@ -1,4 +1,4 @@
-import {ADD_SECTION, LOG_OUT, DELETE_SECTION} from '../constants';
+import {ADD_SECTION, LOG_OUT, DELETE_SECTION, EDIT_SECTION} from '../constants';
 import {read_cookie, bake_cookie} from 'sfcookies';
 
 const defaultState = {
@@ -15,8 +15,8 @@ const updateServer = (state, sections) => {
   bake_cookie('current', users[identifyingCurrent(users, state.currentId)]);
 }
 
-const identifyingCurrent = (users, id) => {
-  return users.indexOf(users.filter(user => user.id === id)[0]);
+const identifyingCurrent = (arr, id) => {
+  return arr.indexOf(arr.filter(item => item.id === id)[0]);
 }
 
 const removeById = (arr, id) => {
@@ -24,7 +24,6 @@ const removeById = (arr, id) => {
 }
 
 const editById = (arr, id) => {
-  
 }
 
 const taskReducer = (state = defaultState, action) => {
@@ -46,6 +45,15 @@ const taskReducer = (state = defaultState, action) => {
       sections = removeById(state.sections, action.id);
       updateServer(state, sections);
       return {...state, sections}
+    case EDIT_SECTION:
+      sections = state.sections.map((section, index) => {
+        if(index === identifyingCurrent(state.sections, action.id)) {
+          section.name = action.name;
+        }
+        return section;
+      });
+      updateServer(state, sections);
+      return {...state, sections};
     default: 
       return state;
   }

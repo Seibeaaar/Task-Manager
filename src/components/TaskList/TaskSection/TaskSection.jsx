@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import SectionOptionsContainer from './SectionOptions/SectionOptionsContainer';
+import SectionEditContainer from './SectionEdit/SectionEditContainer';
 import './TaskSection.scss';
 
 class TaskSection extends Component {
@@ -13,15 +14,22 @@ class TaskSection extends Component {
   setEditMode = (value) => {
     this.setState({edit: value})
   }
+  toggleOptions = (value) => {
+    this.setState({options: value})
+  }
   render() {
     return (
       <div className="tasksection">
         <div className="tasksection__heading">
-          <h5 className="tasksection__title">{this.props.heading}</h5>
-          <button onClick={() => this.setState({options: !this.state.options})} className="options__btn">
-            <FontAwesomeIcon icon={faEllipsisH} /> 
-          </button>
-          {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.setEditMode}/> : ''}
+          {this.state.edit ? <SectionEditContainer confirmEdit={this.setEditMode} sectionId={this.props.id} defaultValue={this.props.heading}/> : 
+            <>
+              <h5 className="tasksection__title">{this.props.heading}</h5>
+              <button onClick={() => this.setState({options: !this.state.options})} className="options__btn">
+                <FontAwesomeIcon icon={faEllipsisH} /> 
+              </button>
+            </>
+          }
+          {this.state.options ? <SectionOptionsContainer editMode={this.setEditMode} hideOptions={this.toggleOptions}/> : ''}
         </div>
         <button className="add__btn add__btn--task">Add task</button>
       </div>

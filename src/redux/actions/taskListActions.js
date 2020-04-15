@@ -21,9 +21,10 @@ export const deleteSection = (id) => {
   }
 }
 
-export const editSection = (id) => {
+export const editSection = (id, name) => {
   return {
     type: EDIT_SECTION,
-    id
+    id,
+    name
   }
 }
