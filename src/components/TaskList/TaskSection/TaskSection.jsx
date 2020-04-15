@@ -4,6 +4,8 @@ import {faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import SectionOptionsContainer from './SectionOptions/SectionOptionsContainer';
 import SectionEditContainer from './SectionEdit/SectionEditContainer';
 import './TaskSection.scss';
+import AddTaskFormContainer from './AddTaskForm/AddTaskFormContainer';
+import TaskItem from './TaskItem/TaskItem';
 
 class TaskSection extends Component {
   state = {
@@ -11,17 +13,22 @@ class TaskSection extends Component {
     options: false,
     edit: false
   }
-  setEditMode = (value) => {
+  toggleEditMode = (value) => {
     this.setState({edit: value})
   }
   toggleOptions = (value) => {
     this.setState({options: value})
   }
+  toggleAddMode = (value) => {
+    this.setState({
+      add: value
+    })
+  }
   render() {
     return (
       <div className="tasksection">
         <div className="tasksection__heading">
-          {this.state.edit ? <SectionEditContainer confirmEdit={this.setEditMode} sectionId={this.props.id} defaultValue={this.props.heading}/> : 
+          {this.state.edit ? <SectionEditContainer confirmEdit={this.toggleEditMode} sectionId={this.props.id} defaultValue={this.props.heading}/> : 
             <>
               <h5 className="tasksection__title">{this.props.heading}</h5>
               <button onClick={() => this.setState({options: !this.state.options})} className="options__btn">
@@ -29,9 +36,10 @@ class TaskSection extends Component {
               </button>
             </>
           }
-          {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.setEditMode} hideOptions={this.toggleOptions}/> : ''}
+          {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.toggleEditMode} hideOptions={this.toggleOptions}/> : ''}
         </div>
-        <button className="add__btn add__btn--task">Add task</button>
+        {this.props.tasks.map(item => <TaskItem title={item}/>)}
+        {this.state.add ? <AddTaskFormContainer toggleAddMode={this.toggleAddMode} sectionId={this.props.id}/> : <button className="add__btn add__btn--task" onClick={() => this.toggleAddMode(true)}>Add task</button>}
       </div>
     )
   }

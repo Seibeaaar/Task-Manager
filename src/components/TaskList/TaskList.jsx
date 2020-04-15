@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
-import TaskSection from './TaskSection/TaskSection';
+import TaskSectionContainer from './TaskSection/TaskSectionContainer';
 import TaskListFormContainer from './TaskListForm/TaskListFormContainer';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
@@ -46,7 +46,7 @@ class TaskList extends Component {
         </header>
         <div className="tasklist__background">
           <StyledContainer maxWidth="xl" className="tasklist__content">
-            {this.props.sections.map(item => <TaskSection heading={item.name} id={item.id}/>)}
+            {this.props.sections.map((item, index) => <TaskSectionContainer heading={item.name} id={item.id} index={index}/>)}
             {this.state.add ? <TaskListFormContainer goToDefault={this.addSection} cancelAdd={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
           </StyledContainer>
         </div>

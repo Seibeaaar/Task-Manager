@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
+import './SectionEdit.scss';
 
 class SectionEdit extends Component {
   state = {
@@ -14,7 +15,7 @@ class SectionEdit extends Component {
   render() {
     return (
       <>
-        <textarea className="section__input" defaultValue={this.state.inputValue} onChange={this.inputHandler}></textarea>
+        <textarea className="edit__input" defaultValue={this.state.inputValue} onChange={this.inputHandler}></textarea>
         <button onClick={() => {
           debugger;
           this.props.editSection(this.props.id, this.state.inputValue);
