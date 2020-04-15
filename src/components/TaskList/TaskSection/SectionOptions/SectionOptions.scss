@@ -1,0 +1,28 @@
+@import '../../../../variables.scss';
+
+
+.popup__options {
+  width: 125px;
+  position: absolute;
+  z-index: 2;
+  top: 35px;
+  right: -95px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: all ease .6s;
+  .option__btn {
+    background: transparent;
+    display: flex;
+    border: none;
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+    transition: background-color ease .4s;
+    &:hover {
+      background-color: $logout-color;
+    }
+    .option__icon {
+      margin-right: 10px;
+    }
+  }
+}

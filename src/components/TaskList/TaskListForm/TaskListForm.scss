@@ -1,0 +1,21 @@
+.sectionform__container {
+  width: 272px;
+  background-color: grey;
+  border-radius: 4px;
+  padding: 10px;
+  .section__input {
+    width: 100%;
+    resize: none;
+    border-radius: 2px;
+  }
+  .btn__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .cancel__btn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+    }
+  }
+}

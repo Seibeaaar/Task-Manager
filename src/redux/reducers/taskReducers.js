@@ -38,6 +38,7 @@ const taskReducer = (state = defaultState, action) => {
     case LOG_OUT: 
       return {...state, sections: [], currentFirstName: '', currentLastName: ''};
     case ADD_SECTION:
+      if(!action.sectionName) return state;
       sections = [...state.sections, {name: action.sectionName, tasks: [], id: Date.now()}];
       updateServer(state, sections);
       return {...state, sections};

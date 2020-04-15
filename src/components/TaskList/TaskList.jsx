@@ -4,6 +4,7 @@ import {faPowerOff} from '@fortawesome/free-solid-svg-icons';
 import TaskSection from './TaskSection/TaskSection';
 import TaskListFormContainer from './TaskListForm/TaskListFormContainer';
 import Container from '@material-ui/core/Container';
+import Avatar from '@material-ui/core/Avatar';
 import {withStyles} from '@material-ui/core/styles';
 import './TaskList.scss';
 
@@ -33,7 +34,10 @@ class TaskList extends Component {
     return (
       <>
         <header className="tasklist__header">
-          <h5>{this.props.firstName + ' ' + this.props.lastName}</h5>
+          <div className="tasklist__personal">
+            <Avatar>{this.props.firstName[0].toUpperCase() + this.props.lastName[0].toUpperCase()}</Avatar>
+            <h5 className="personal__name">{this.props.firstName + ' ' + this.props.lastName}</h5>
+          </div>
           <button className="logout__btn" onClick={() => {
             this.props.logOut();
           }}>
@@ -43,7 +47,7 @@ class TaskList extends Component {
         <div className="tasklist__background">
           <StyledContainer maxWidth="xl" className="tasklist__content">
             {this.props.sections.map(item => <TaskSection heading={item.name} id={item.id}/>)}
-            {this.state.add ? <TaskListFormContainer goToDefault={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
+            {this.state.add ? <TaskListFormContainer goToDefault={this.addSection} cancelAdd={this.addSection}/> : <button onClick={this.addSection} className="add__btn">Add section</button>}
           </StyledContainer>
         </div>
       </>

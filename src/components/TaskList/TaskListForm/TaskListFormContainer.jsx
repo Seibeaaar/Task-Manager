@@ -5,7 +5,7 @@ import TaskListForm from './TaskListForm';
 
 const TaskListFormContainer = (props) => {
   return (
-    <TaskListForm addSection={props.addSection} goToDefault={props.goToDefault}/>
+    <TaskListForm addSection={props.addSection} goToDefault={props.goToDefault} cancelAdd={props.cancelAdd}/>
   )
 }
 

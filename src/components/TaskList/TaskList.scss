@@ -9,6 +9,13 @@
   background-color: $header-color;
   align-items: center;
   color: #fff;
+  .tasklist__personal {
+    display: flex;
+    align-items: center;
+    .personal__name {
+      margin-left: 10px;
+    }
+  }
   .logout__btn {
     height: 32px;
     width: 32px;
