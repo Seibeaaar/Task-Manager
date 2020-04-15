@@ -1,0 +1,8 @@
+.taskitem__container {
+  margin-bottom: 5px;
+  cursor: pointer;
+  .btn__container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

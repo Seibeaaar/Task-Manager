@@ -1,0 +1,20 @@
+.task__input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  height: 75px;
+  padding: 10px;
+}
+
+.btn__container {
+  display: flex;
+  justify-content: space-between;
+  .confirm__btn {
+    background-color: #5aac44;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 16px;
+  }
+}

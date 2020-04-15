@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import './AddTaskForm.scss';
 
 class AddTaskForm extends Component {
   state = {
@@ -14,9 +15,9 @@ class AddTaskForm extends Component {
   render() {
     return (
       <div>
-        <textarea value={this.state.inputValue} onChange={this.inputHandler}></textarea>
+        <textarea value={this.state.inputValue} onChange={this.inputHandler} className="task__input" placeholder="Enter your task here"></textarea>
         <div className="btn__container">
-          <button onClick={() => {
+          <button className="confirm__btn" onClick={() => {
             this.props.addTask(this.props.sectionId, this.state.inputValue);
             this.props.toggleAddMode(false);
           }}>
