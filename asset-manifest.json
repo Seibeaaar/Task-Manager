@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Task-Manager/static/css/main.dbc912a7.chunk.css",
+    "main.js": "/Task-Manager/static/js/main.4965c5d9.chunk.js",
+    "main.js.map": "/Task-Manager/static/js/main.4965c5d9.chunk.js.map",
+    "runtime-main.js": "/Task-Manager/static/js/runtime-main.b9e78fc9.js",
+    "runtime-main.js.map": "/Task-Manager/static/js/runtime-main.b9e78fc9.js.map",
+    "static/js/2.3e1f2645.chunk.js": "/Task-Manager/static/js/2.3e1f2645.chunk.js",
+    "static/js/2.3e1f2645.chunk.js.map": "/Task-Manager/static/js/2.3e1f2645.chunk.js.map",
+    "index.html": "/Task-Manager/index.html",
+    "precache-manifest.25dd51b71d33f192f8533f00af41fe80.js": "/Task-Manager/precache-manifest.25dd51b71d33f192f8533f00af41fe80.js",
+    "service-worker.js": "/Task-Manager/service-worker.js",
+    "static/css/main.dbc912a7.chunk.css.map": "/Task-Manager/static/css/main.dbc912a7.chunk.css.map",
+    "static/js/2.3e1f2645.chunk.js.LICENSE.txt": "/Task-Manager/static/js/2.3e1f2645.chunk.js.LICENSE.txt",
+    "static/media/Authorize.scss": "/Task-Manager/static/media/authorize-bg.7c4dbc10.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9e78fc9.js",
+    "static/js/2.3e1f2645.chunk.js",
+    "static/css/main.dbc912a7.chunk.css",
+    "static/js/main.4965c5d9.chunk.js"
+  ]
+}
