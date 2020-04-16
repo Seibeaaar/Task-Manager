@@ -24,13 +24,15 @@ class TaskList extends Component {
         alignItems: 'flex-start',
         width: this.props.sections.length < 5 ? '100%' : `${this.props.sections.length * 340}px`,
         [theme.breakpoints.down(700)]: {
-          width: this.props.sections.length * 340
+          width: this.props.sections.length * 340,
+          height: 'vmax'
         },
         height: '100vh',
         backgroundImage: 'url("https://embedwistia-a.akamaihd.net/deliveries/d5ae8190f0aa7dfbe0b01f336f29d44094b967b5.webp?image_crop_resized=1280x720")',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        overflowY: 'hidden'
       }
     })))(Container)
     return (
