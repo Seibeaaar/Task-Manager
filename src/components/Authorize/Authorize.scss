@@ -1,12 +1,16 @@
-
-
 .authorize {
   display: flex;
+  height: 100vh;
   .authorize__banner {
     width: 50%;
-    height: 100vh;
     background-image: url('../../assets/authorize-bg.png');
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .authorize__banner {
+    display: none;
   }
 }

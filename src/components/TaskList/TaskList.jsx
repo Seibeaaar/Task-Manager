@@ -8,7 +8,6 @@ import Avatar from '@material-ui/core/Avatar';
 import {withStyles} from '@material-ui/core/styles';
 import './TaskList.scss';
 
-
 class TaskList extends Component {
   state = {
     add: false
@@ -19,18 +18,21 @@ class TaskList extends Component {
     })
   }
   render() {
-    const StyledContainer = withStyles({
+    const StyledContainer = withStyles((theme => ({
       root: {
         display: 'flex',
         alignItems: 'flex-start',
         width: this.props.sections.length < 5 ? '100%' : `${this.props.sections.length * 340}px`,
+        [theme.breakpoints.down(700)]: {
+          width: this.props.sections.length * 340
+        },
         height: '100vh',
         backgroundImage: 'url("https://embedwistia-a.akamaihd.net/deliveries/d5ae8190f0aa7dfbe0b01f336f29d44094b967b5.webp?image_crop_resized=1280x720")',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed'
       }
-    })(Container);
+    })))(Container)
     return (
       <>
         <header className="tasklist__header">
