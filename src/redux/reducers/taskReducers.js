@@ -1,4 +1,4 @@
-import {ADD_SECTION, LOG_OUT, DELETE_SECTION, EDIT_SECTION, ADD_TASK, DELETE_TASK} from '../constants';
+import {ADD_SECTION, LOG_OUT, DELETE_SECTION, EDIT_SECTION, ADD_TASK, DELETE_TASK, EDIT_TASK} from '../constants';
 import {read_cookie, bake_cookie} from 'sfcookies';
 
 const defaultState = {
@@ -57,6 +57,12 @@ const taskReducer = (state = defaultState, action) => {
     case DELETE_TASK:
       sections = [...state.sections];
       sections[identifyingCurrent(sections, action.sectionId)].tasks.splice(action.taskIndex, 1);
+      updateServer(state, sections);
+      return {...state, sections};
+    case EDIT_TASK :
+    if(!action.name) return state;
+      sections = [...state.sections];
+      sections[identifyingCurrent(sections, action.sectionId)].tasks[action.taskIndex] = action.name;
       updateServer(state, sections);
       return {...state, sections};
     default: 

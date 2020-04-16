@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {addUser} from '../../../../redux/actions/loginActions';
-import TextField from '@material-ui/core/TextField';
 
 class Register extends Component {
   state = {
