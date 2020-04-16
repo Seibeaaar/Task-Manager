@@ -5,7 +5,7 @@ import SectionOptionsContainer from './SectionOptions/SectionOptionsContainer';
 import SectionEditContainer from './SectionEdit/SectionEditContainer';
 import './TaskSection.scss';
 import AddTaskFormContainer from './AddTaskForm/AddTaskFormContainer';
-import TaskItem from './TaskItem/TaskItem';
+import TaskItemContainer from './TaskItem/TaskItemContainer';
 
 class TaskSection extends Component {
   state = {
@@ -38,7 +38,7 @@ class TaskSection extends Component {
           }
           {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.toggleEditMode} hideOptions={this.toggleOptions}/> : ''}
         </div>
-        {this.props.tasks.map(item => <TaskItem title={item}/>)}
+        {this.props.tasks.map((item, index) => <TaskItemContainer title={item} index={index} sectionId={this.props.id}/>)}
         {this.state.add ? <AddTaskFormContainer toggleAddMode={this.toggleAddMode} sectionId={this.props.id}/> : <button className="add__btn add__btn--task" onClick={() => this.toggleAddMode(true)}>Add task</button>}
       </div>
     )

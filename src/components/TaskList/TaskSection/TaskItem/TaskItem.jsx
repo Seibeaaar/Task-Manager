@@ -15,7 +15,7 @@ const TaskItem = (props) => {
         </Typography>
         <div className="btn__container">
           <button><FontAwesomeIcon icon={faPen} /></button>
-          <button><FontAwesomeIcon icon={faTrash} /></button>
+          <button><FontAwesomeIcon icon={faTrash} onClick={() => props.deleteTask(props.sectionId, props.index)}/></button>
         </div>
       </CardContent>
     </Card>

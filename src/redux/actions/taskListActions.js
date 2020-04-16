@@ -1,4 +1,4 @@
-import {LOG_OUT, ADD_SECTION, DELETE_SECTION, EDIT_SECTION, ADD_TASK} from '../constants';
+import {LOG_OUT, ADD_SECTION, DELETE_SECTION, EDIT_SECTION, ADD_TASK, DELETE_TASK, EDIT_TASK} from '../constants';
 
 export const logOut = () => {
   return {
@@ -33,6 +33,23 @@ export const addTask = (sectionId, name) => {
   return {
     type: ADD_TASK,
     sectionId,
+    name
+  }
+}
+
+export const deleteTask = (sectionId, taskIndex) => {
+  return {
+    type: DELETE_TASK,
+    sectionId,
+    taskIndex
+  }
+}
+
+export const editTask = (sectionId, taskIndex, name) => {
+  return {
+    type: EDIT_TASK,
+    sectionId,
+    taskIndex,
     name
   }
 }

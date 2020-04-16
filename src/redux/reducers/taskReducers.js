@@ -1,4 +1,4 @@
-import {ADD_SECTION, LOG_OUT, DELETE_SECTION, EDIT_SECTION, ADD_TASK} from '../constants';
+import {ADD_SECTION, LOG_OUT, DELETE_SECTION, EDIT_SECTION, ADD_TASK, DELETE_TASK} from '../constants';
 import {read_cookie, bake_cookie} from 'sfcookies';
 
 const defaultState = {
@@ -20,7 +20,7 @@ const identifyingCurrent = (arr, id) => {
 }
 
 const removeById = (arr, id) => {
-  return arr.filter(section => section.id !== id);
+  return arr.filter(item => item.id !== id);
 }
 
 const taskReducer = (state = defaultState, action) => {
@@ -44,22 +44,19 @@ const taskReducer = (state = defaultState, action) => {
       return {...state, sections}
     case EDIT_SECTION:
       if(!action.name) return state;
-      sections = state.sections.map((section, index) => {
-        if(index === identifyingCurrent(state.sections, action.id)) {
-          section.name = action.name;
-        }
-        return section;
-      });
+      sections = [...state.sections];
+      sections[identifyingCurrent(sections, action.id)].name = action.name;
       updateServer(state, sections);
       return {...state, sections};
     case ADD_TASK:
       if(!action.name) return state;
-      sections = state.sections.map((section, index) => {
-        if(index === identifyingCurrent(state.sections, action.sectionId)) {
-          section.tasks = [...section.tasks, action.name];
-        }
-        return section;
-      });
+      sections = [...state.sections];
+      sections[identifyingCurrent(sections, action.sectionId)].tasks.push(action.name);
+      updateServer(state, sections);
+      return {...state, sections};
+    case DELETE_TASK:
+      sections = [...state.sections];
+      sections[identifyingCurrent(sections, action.sectionId)].tasks.splice(action.taskIndex, 1);
       updateServer(state, sections);
       return {...state, sections};
     default: 
