@@ -38,7 +38,9 @@ class TaskSection extends Component {
           }
           {this.state.options ? <SectionOptionsContainer sectionId={this.props.id} editMode={this.toggleEditMode} hideOptions={this.toggleOptions}/> : ''}
         </div>
-        {this.props.tasks.map((item, index) => <TaskItemContainer title={item} index={index} sectionId={this.props.id}/>)}
+        <div className="task__container">
+          {this.props.tasks.map((item, index) => <TaskItemContainer title={item} index={index} sectionId={this.props.id}/>)}
+        </div>
         {this.state.add ? <AddTaskFormContainer toggleAddMode={this.toggleAddMode} sectionId={this.props.id}/> : <button className="add__btn add__btn--task" onClick={() => this.toggleAddMode(true)}>Add task</button>}
       </div>
     )

@@ -43,6 +43,7 @@
       width: 272px;
       display: flex;
       align-items: center;
+      margin-top: 2px;
       transition: background-color ease .4s;
       &::before {
         content: '+';

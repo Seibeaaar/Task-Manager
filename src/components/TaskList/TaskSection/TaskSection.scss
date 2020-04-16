@@ -23,4 +23,8 @@
       height: 20px;
     }
   }
+  .task__container {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
 }
