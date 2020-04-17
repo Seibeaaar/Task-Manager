@@ -12,4 +12,4 @@ All libraries used in the app:
 -sfcookies (for storing data in the cookies)
 -material-ui (creating beautiful UI components)
 
-To run the app on your device, you can close the repository, open the terminal, type in the command "npm install" to install all dependencies needed and the use "npm start" command.
+To run the app on your device, you can clone the repository, open the terminal, type in the command "npm install" to install all dependencies needed and the use "npm start" command.
